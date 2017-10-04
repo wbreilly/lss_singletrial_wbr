@@ -29,8 +29,10 @@ responsePatterns = fMRIDataMasking(fullBrainVols, binaryMasks_nS, betaCorrespond
 RDMs = constructRDMs(responsePatterns, betaCorrespondence, userOptions);
 
 s001_cor_mtx = -1*(RDMs.RDM-1);
+x = s001_cor_mtx;
 colormap('redblue')
 plot_s001_cor_mtx = imagesc(s001_cor_mtx,[-1 1]);
+colorbar;
 
 % sRDMs = averageRDMs_subjectSession(RDMs, 'session');
 % RDMs = averageRDMs_subjectSession(RDMs, 'session', 'subject');
