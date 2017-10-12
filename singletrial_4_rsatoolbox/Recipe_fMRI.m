@@ -28,32 +28,32 @@ responsePatterns = fMRIDataMasking(fullBrainVols, binaryMasks_nS, betaCorrespond
 
 RDMs = constructRDMs(responsePatterns, betaCorrespondence, userOptions);
 
-s001_cor_mtx = -1*(RDMs.RDM-1);
-x = s001_cor_mtx;
-colormap('redblue')
-plot_s001_cor_mtx = imagesc(s001_cor_mtx,[-1 1]);
-colorbar;
+% s001_cor_mtx = -1*(RDMs.RDM-1);
+% x = s001_cor_mtx;
+% colormap('redblue')
+% plot_s001_cor_mtx = imagesc(s001_cor_mtx,[-1 1]);
+% colorbar;
 
-% sRDMs = averageRDMs_subjectSession(RDMs, 'session');
-% RDMs = averageRDMs_subjectSession(RDMs, 'session', 'subject');
-% Models = constructModelRDMs(modelRDMs(), userOptions);
+sRDMs = averageRDMs_subjectSession(RDMs, 'session');
+RDMs = averageRDMs_subjectSession(RDMs, 'session', 'subject');
+Models = constructModelRDMs(modelRDMs(), userOptions);
 % 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %% First-order visualisation %%
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 
-% figureRDMs(RDMs, userOptions, struct('fileName', 'RoIRDMs', 'figureNumber', 1));
-% figureRDMs(Models, userOptions, struct('fileName', 'ModelRDMs', 'figureNumber', 2));
+figureRDMs(RDMs, userOptions, struct('fileName', 'RoIRDMs', 'figureNumber', 1));
+figureRDMs(Models, userOptions, struct('fileName', 'ModelRDMs', 'figureNumber', 2));
 % 
-% MDSConditions(RDMs, userOptions);
-% dendrogramConditions(RDMs, userOptions);
+MDSConditions(RDMs, userOptions);
+dendrogramConditions(RDMs, userOptions);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% relationship amongst multiple RDMs %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%pairwiseCorrelateRDMs({RDMs, Models}, userOptions);
-%MDSRDMs({RDMs, Models}, userOptions);
+pairwiseCorrelateRDMs({RDMs, Models}, userOptions);
+MDSRDMs({RDMs, Models}, userOptions);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% statistical inference %%

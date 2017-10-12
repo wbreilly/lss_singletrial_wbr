@@ -1,4 +1,4 @@
-function betas = betaCorrespondence();
+function betas = betaCorrespondence()
 %
 %  betaCorrespondence.m is a simple function which should combine
 %  three things: 
@@ -26,7 +26,7 @@ function betas = betaCorrespondence();
 %__________________________________________________________________________
 % Copyright (C) 2010 Medical Research Council
 
-dir = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/getbetas_9_29_17/s002/beta_4_rsa_singletrial';
+dir = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/getbetas_10_8_17/s001/beta_4_rsa_singletrial';
 x = spm_select('ExtFPListRec', dir, '.*\.nii');
 
 
