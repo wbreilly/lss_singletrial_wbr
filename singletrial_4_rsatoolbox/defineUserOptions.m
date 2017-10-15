@@ -18,16 +18,15 @@ function userOptions = defineUserOptions()
 %% Project details
 
 % This name identifies a collection of files which all belong to the same run of a project.
-userOptions.analysisName = 'singletrial_10_10_17';
+userOptions.analysisName = 'singletrial_native_10_14_17';
 
 % This is the root directory of the project.
 userOptions.rootPath = '/Users/wbr/walter/fmri/sms_scan_analyses/rsa_singletrial/singletrial_4_rsatoolbox';
-%userOptions.analysisDir = '/Users/trjonker/MatlabWork/Retriev01/Analysis/RSA/';
 
 % The path leading to where the scans are stored (not including subject-specific identifiers).
 % "[[subjectName]]" should be used as a placeholder to denote an entry in userOptions.subjectNames
 % "[[betaIdentifier]]" should be used as a placeholder to denote an output of betaCorrespondence.m if SPM is not being used; or an arbitrary filename if SPM is being used.
-userOptions.betaPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/getbetas_10_8_17/[[subjectName]]/beta_4_rsa_singletrial/[[betaIdentifier]]';
+userOptions.betaPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/getbetas_native_10_13_17/[[subjectName]]/beta_4_rsa_singletrial/[[betaIdentifier]]';
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% FEATURES OF INTEREST SELECTION OPTIONS %%
@@ -40,11 +39,13 @@ userOptions.betaPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/ge
 	% The path to a stereotypical mask data file is stored (not including subject-specific identifiers).
 	% "[[subjectName]]" should be used as a placeholder to denote an entry in userOptions.subjectNames
 	% "[[maskName]]" should be used as a placeholder to denote an entry in userOptions.maskNames
-	userOptions.maskPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/masks/resampled_aal_mask_occ_sup_mid.nii';
+	userOptions.maskPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/masks/[[subjectName]]/ANTS_MTL_1/[[maskName]]';
 		% beta_resampled_word_form_thresholded.nii
         
-		% The list of mask filenames (minus .hdr extension) to be used.
-		userOptions.maskNames = {'aal_occ'};
+    % The list of mask filenames (minus .hdr extension) to be used.
+    userOptions.maskNames = {'thresh_hipp_body_L' 'thresh_hipp_body_R'  'thresh_hipp_head_L' 'thresh_hipp_head_R' ...
+                             'thresh_hipp_tail_L' 'thresh_hipp_tail_R' 'thresh_phc_ant_L' 'thresh_phc_ant_R' ...
+                             'thresh_prc_L' 'thresh_prc_R' 'thresh_VMPFC'};
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %% SEARCHLIGHT OPTIONS %%
@@ -69,7 +70,7 @@ userOptions.betaPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/ge
 %%%%%%%%%%%%%%%%%%%%%%%%
 
 % The list of subjects to be included in the study.
-userOptions.subjectNames = {'s001' 's002' 's003' 's004' 's007' 's008'};
+userOptions.subjectNames = {'s001' 's002' 's003' 's004' 's007' 's008' 's009' 's010' 's011'};
 
 % The default colour label for RDMs corresponding to RoI masks (as opposed to models).
 userOptions.RoIColor = [0 0 1];
