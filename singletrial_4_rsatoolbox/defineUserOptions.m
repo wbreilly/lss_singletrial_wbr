@@ -18,7 +18,7 @@ function userOptions = defineUserOptions()
 %% Project details
 
 % This name identifies a collection of files which all belong to the same run of a project.
-userOptions.analysisName = 'singletrial_native_10_14_17';
+userOptions.analysisName = 'singletrial_glass_10_17_17';
 
 % This is the root directory of the project.
 userOptions.rootPath = '/Users/wbr/walter/fmri/sms_scan_analyses/rsa_singletrial/singletrial_4_rsatoolbox';
@@ -39,13 +39,35 @@ userOptions.betaPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/ge
 	% The path to a stereotypical mask data file is stored (not including subject-specific identifiers).
 	% "[[subjectName]]" should be used as a placeholder to denote an entry in userOptions.subjectNames
 	% "[[maskName]]" should be used as a placeholder to denote an entry in userOptions.maskNames
-	userOptions.maskPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/masks/[[subjectName]]/ANTS_MTL_1/[[maskName]]';
+	userOptions.maskPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/masks/[[subjectName]]/Glass/[[maskName]]';
 		% beta_resampled_word_form_thresholded.nii
         
     % The list of mask filenames (minus .hdr extension) to be used.
-    userOptions.maskNames = {'thresh_hipp_body_L' 'thresh_hipp_body_R'  'thresh_hipp_head_L' 'thresh_hipp_head_R' ...
-                             'thresh_hipp_tail_L' 'thresh_hipp_tail_R' 'thresh_phc_ant_L' 'thresh_phc_ant_R' ...
-                             'thresh_prc_L' 'thresh_prc_R' 'thresh_VMPFC'};
+    
+%     userOptions.maskNames = {'thresh_hipp_body_L' 'thresh_hipp_body_R'  'thresh_hipp_head_L' 'thresh_hipp_head_R' ...
+%                              'thresh_hipp_tail_L' 'thresh_hipp_tail_R' 'thresh_phc_ant_L' 'thresh_phc_ant_R' ...
+%                              'thresh_prc_L' 'thresh_prc_R' 'thresh_VMPFC'};
+
+%         userOptions.maskNames = {'resliced_hipp_body_L.nii' 'resliced_hipp_body_R.nii'  'resliced_hipp_head_L.nii' 'resliced_hipp_head_R.nii' ...
+%             'resliced_hipp_tail_L.nii' 'resliced_hipp_tail_R.nii'   'resliced_phc_ant_L.nii' 'resliced_phc_ant_R.nii' ...
+%             'resliced_prc_L.nii' 'resliced_prc_R.nii' 'resliced_VMPFC.nii'};
+%         
+%         userOptions.maskNames = strrep(userOptions.maskNames, '.nii', ''); 
+
+        % nearest neighbor ROIs
+%     userOptions.maskNames = {'near_hipp_body_L.nii' 'near_hipp_body_R.nii'  'near_hipp_head_L.nii' 'near_hipp_head_R.nii' ...
+%             'near_hipp_tail_L.nii' 'near_hipp_tail_R.nii' 'near_phc_ant_L.nii' 'near_phc_ant_R.nii' ...
+%             'near_prc_L.nii' 'near_prc_R.nii' 'near_VMPFC.nii'};
+
+        % glasser rois
+        userOptions.maskNames = {'reslice_near_glass_ANG_150.nii' 'reslice_near_glass_ANG_149.nii'...
+            'reslice_near_glass_RSC_14.nii' 'reslice_near_glass_PCC_34.nii' 'reslice_near_glass_PCC_33.nii' ...
+            'reslice_near_glass_PREC_31.nii' 'reslice_near_glass_PREC_30.nii' 'reslice_near_glass_PREC_38.nii' ...
+            'reslice_near_glass_PREC_27.nii' 'reslice_near_glass_PHC_125.nii' 'reslice_near_glass_PHC_126.nii'...
+            'reslice_near_glass_PHC_127.nii' 'reslice_near_glass_VMPFC_88.nii'};
+        
+        userOptions.maskNames = strrep(userOptions.maskNames, '.nii', ''); 
+    
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %% SEARCHLIGHT OPTIONS %%

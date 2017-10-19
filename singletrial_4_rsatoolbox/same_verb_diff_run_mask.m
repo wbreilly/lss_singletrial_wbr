@@ -5,17 +5,18 @@
 % 
 % 
 % 
+clear all
 
 % eliminate:
     % columns that are multiples of 3 
     % diagonal and everything above it 
     
-load('/Users/wbr/walter/fmri/sms_scan_analyses/rsa_singletrial/singletrial_4_rsatoolbox/RDMs/singletrial_native_10_14_17_RDMs.mat')
-
+load('/Users/wbr/walter/fmri/sms_scan_analyses/rsa_singletrial/singletrial_4_rsatoolbox/RDMs/singletrial_glass_10_17_17_RDMs.mat');
 %loop through each roi
-for iroi = 1:size(RDMs,1)
+for iroi = 1:13 %1:size(RDMs,1)  %[1 2 3 4  7 8 9 10 11]
     % loop through each sub
-    for iRDM = 1:[1 2 3 4 5 7 8 9]
+    for iRDM = 1:9 % 2 3 4 5 6 7 8 9] 
+        
         clearvars -except RDMs iroi iRDM 
         
         x = -1*(RDMs(iroi,iRDM).RDM-1);
@@ -49,6 +50,7 @@ for iroi = 1:size(RDMs,1)
             end
         end % end iseq
 
+        
         % get rid of ones
         x(x == 1) = 0;
         % git rid of zeroes and vectorize
@@ -71,7 +73,7 @@ for iroi = 1:size(RDMs,1)
     all_random = [];
     all_scramfix = [];
     % now conc means 
-    for isub = 1:8
+    for isub = 1:9
         load(sprintf('sub%dcondmeans.mat', isub))
         all_intact = [all_intact x_i_mean];
         all_random = [all_random x_s_r_mean];
@@ -81,7 +83,7 @@ for iroi = 1:size(RDMs,1)
     fprintf('\n%s\n Mean all_intact: %.03f\n', RDMs(iroi,1).name, mean(all_intact))
     fprintf('%s\n Mean all_scramfix: %.03f\n', RDMs(iroi,1).name, mean(all_scramfix))
     fprintf('%s\n Mean all_random: %.03f\n', RDMs(iroi,1).name, mean(all_random))
-    
+    [t,p] = ttest(all_intact,all_scramfix)
     
     fprintf('---------------------------------------------\n')
 end
