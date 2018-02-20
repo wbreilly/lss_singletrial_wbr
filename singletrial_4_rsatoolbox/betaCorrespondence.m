@@ -26,10 +26,10 @@ function betas = betaCorrespondence()
 %__________________________________________________________________________
 % Copyright (C) 2010 Medical Research Council
 
-dir = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/getbetas_native_10_13_17/s001/beta_4_rsa_singletrial';
-x = spm_select('ExtFPListRec', dir, '^(in|ra|sc).*\.nii');
+dir = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/getbetas_native_10_20_17/s001/beta_4_rsa_singletrial';
+x = spm_select('ExtFPListRec', dir, '^*\.nii');
 % need to remove first beta, a duplicate, if using non-resliced betas
-x = x(2:end,:);
+% x = x(2:end,:);
 
 
 

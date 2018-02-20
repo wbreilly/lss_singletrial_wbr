@@ -43,10 +43,10 @@ Models = constructModelRDMs(modelRDMs(), userOptions);
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 
 figureRDMs(RDMs, userOptions, struct('fileName', 'RoIRDMs', 'figureNumber', 1));
-figureRDMs(Models, userOptions, struct('fileName', 'ModelRDMs', 'figureNumber', 2));
-% 
-MDSConditions(RDMs, userOptions);
-dendrogramConditions(RDMs, userOptions);
+% figureRDMs(Models, userOptions, struct('fileName', 'ModelRDMs', 'figureNumber', 2));
+% WBR
+% MDSConditions(RDMs, userOptions);
+% dendrogramConditions(RDMs, userOptions);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% relationship amongst multiple RDMs %%
