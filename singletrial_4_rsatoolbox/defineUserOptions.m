@@ -18,7 +18,7 @@ function userOptions = defineUserOptions()
 %% Project details
 
 % This name identifies a collection of files which all belong to the same run of a project.
-userOptions.analysisName = 'all_glass_2_7_18_2ndorder_pearsons';
+userOptions.analysisName = 'Glasser_sameVERB_TMAPS_5_2_18';
 
 % This is the root directory of the project.
 userOptions.rootPath = '/Users/wbr/walter/fmri/sms_scan_analyses/rsa_singletrial/singletrial_4_rsatoolbox';
@@ -26,7 +26,7 @@ userOptions.rootPath = '/Users/wbr/walter/fmri/sms_scan_analyses/rsa_singletrial
 % The path leading to where the scans are stored (not including subject-specific identifiers).
 % "[[subjectName]]" should be used as a placeholder to denote an entry in userOptions.subjectNames
 % "[[betaIdentifier]]" should be used as a placeholder to denote an output of betaCorrespondence.m if SPM is not being used; or an arbitrary filename if SPM is being used.
-userOptions.betaPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/getbetas_native_10_20_17/[[subjectName]]/beta_4_rsa_singletrial/[[betaIdentifier]]';
+userOptions.betaPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/getbetas_native_4_26_18/[[subjectName]]/SVDP_tmaps_4_rsa/[[betaIdentifier]]';
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% FEATURES OF INTEREST SELECTION OPTIONS %%
@@ -93,7 +93,8 @@ userOptions.betaPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/ge
 
 %%
         % all native glasser ROIs
-        load('glass_roi_names.mat');
+        load('glass_roi_no_LHorRH.mat');
+%         load('glass_roi_names.mat');
         userOptions.maskNames = y(2:end);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
@@ -119,7 +120,7 @@ userOptions.betaPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/ge
 %%%%%%%%%%%%%%%%%%%%%%%%
 
 % The list of subjects to be included in the study.
-userOptions.subjectNames = {'s001' 's002' 's003' 's004' 's007' 's008' 's010' 's011' 's015' 's016' 's018' 's019'}; % 's009'
+userOptions.subjectNames = {'s001' 's002' 's003' 's004' 's007' 's009' 's010' 's011' 's015' 's016' 's018' 's019' 's020' 's022' 's023' 's024' 's025'}; % 's008'
 
 % The default colour label for RDMs corresponding to RoI masks (as opposed to models).
 userOptions.RoIColor = [0 0 1];
@@ -150,7 +151,7 @@ userOptions.distance = 'correlation';
 % %% Second-order analysis
 % 
 % % Which similarity-measure is used for the second-order comparison.
- userOptions.distanceMeasure = 'correlation';
+ userOptions.distanceMeasure = 'spearman';
 % 
 % % How many permutations should be used to test the significance of the fits?  (10,000 highly recommended.)
 % userOptions.significanceTestPermutations = 10000;

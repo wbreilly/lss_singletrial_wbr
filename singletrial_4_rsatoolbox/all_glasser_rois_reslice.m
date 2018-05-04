@@ -5,7 +5,7 @@ clc
 
 dataDir     = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/masks';
 scriptdir   = '/Users/wbr/walter/fmri/sms_scan_analyses/rsa_singletrial/singletrial_4_rsatoolbox';
-subjects    = {'s001' 's002' 's003' 's004' 's007' 's008' 's010' 's011' 's015' 's016' 's018' 's019'}; % 's009'
+subjects    = {'s009' 's020' 's022' 's023' 's024' 's025'};%{'s001' 's002' 's003' 's004' 's007' 's008' 's010' 's011' 's015' 's016' 's018' 's019'}; 
 b.scriptdir = scriptdir;
 
 % newnames = {'lh_ACC' 'lh_ANG' 'lh_MPFC' 'lh_PCC' 'lh_PHG' 'lh_Prec' 'lh_RSC' ...
@@ -19,10 +19,9 @@ for isub = 1:length(subjects)
     b.curSubj   = subjects{isub};
     b.dataDir   = fullfile(dataDir, b.curSubj, 'all_glass');
     b.masks     = cellstr(spm_select('ExtFPListRec', b.dataDir, '.*.nii'));
-    keyboard
     
     % mean image as the reference 
-    path1 = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/batch_preproc_native_10_12_17/';
+    path1 = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/batch_preproc_native_2_28_18/';
     path2 = sprintf('Rifa_1/meanslicetime_%s.Rifa_1.bold.nii', b.curSubj);
     ref_img = fullfile(path1, b.curSubj, path2);
     

@@ -36,7 +36,7 @@ RDMs = constructRDMs(responsePatterns, betaCorrespondence, userOptions);
 
 sRDMs = averageRDMs_subjectSession(RDMs, 'session');
 RDMs = averageRDMs_subjectSession(RDMs, 'session', 'subject');
-Models = constructModelRDMs(modelRDMs(), userOptions);
+% Models = constructModelRDMs(modelRDMs(), userOptions);
 % 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % %% First-order visualisation %%
@@ -52,8 +52,8 @@ figureRDMs(RDMs, userOptions, struct('fileName', 'RoIRDMs', 'figureNumber', 1));
 %% relationship amongst multiple RDMs %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-pairwiseCorrelateRDMs({RDMs, Models}, userOptions);
-MDSRDMs({RDMs, Models}, userOptions);
+% pairwiseCorrelateRDMs({RDMs, Models}, userOptions);
+% MDSRDMs({RDMs, Models}, userOptions);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% statistical inference %%
