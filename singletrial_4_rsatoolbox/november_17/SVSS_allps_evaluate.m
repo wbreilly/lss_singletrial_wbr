@@ -5,19 +5,18 @@ clc
 %% setup and create text file
 
 % analysis name
-% analysis = 'FS_ANTS_samePOS_allps_TMAP_5_1_18_7.5ptile';
-analysis = 'Glasser_samePOS_allps_tmap_5_2_18_7.5ptile';
+analysis = 'same_position_10_25_18_5ptile';
 % you know who
-subjects = {'s001' 's002' 's003' 's004' 's007' 's008' 's009' 's010' 's011' 's015' 's016' 's018' 's019' 's020' 's022' 's023' 's024' 's025'}; 
+subjects = {'s001' 's002' 's003' 's004' 's007' 's008' 's009' 's010' 's011' 's015' 's016' 's018' 's019'  's020'...
+            's022' 's023' 's024' 's025' 's027' 's028' 's029' 's030' 's032' 's033' 's034' 's035' 's036' 's037' ...
+            's038' 's039' 's040' 's041' 's042'};
 % load the RSA matrices     
-% load('/Users/wbr/walter/fmri/sms_scan_analyses/rsa_singletrial/singletrial_4_rsatoolbox/RDMs/FS_ANTS_samePOS_TMAPS_4_30_18_RDMs.mat');
-% load('/Users/wbr/walter/fmri/sms_scan_analyses/rsa_singletrial/singletrial_4_rsatoolbox/RDMs/FS_ANTS_samePOS_betas_4_27_18_RDMs.mat');
-load('/Users/wbr/walter/fmri/sms_scan_analyses/rsa_singletrial/singletrial_4_rsatoolbox/RDMs/Glasser_samePOS_TMAPS_5_2_18_RDMs.mat');
+load('/Users/wbr/walter/fmri/sms_scan_analyses/rsa_singletrial/singletrial_4_rsatoolbox/RDMs/same_position_10_23_18_RDMs.mat');
 
 % load mask
 load('SVSS_allps.mat')
 %path to bad betas
-bad_beta_path = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/getbetas_native_4_26_18_duplicate';
+bad_beta_path = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/cluster_preproc_native_8_6_18_tmaps';
 
 % setup txt to write results into with subject and analysis names
 analysis_dat = sprintf('RSAmeans_%s.txt', analysis);
@@ -57,8 +56,7 @@ for ipos = 1:5
     for iRDM = 1:size(RDMs,2)
         
         % load up the bad beta identifiers
-        beta_txt = fullfile(bad_beta_path,subjects{iRDM}, 'tmap_4_rsa_singletrial', 'SVSS_tmap_7.5ptile_5_18.txt');
-%         beta_txt = fullfile(bad_beta_path,subjects{iRDM}, 'beta_4_rsa_singletrial', 'SVSS_betas_7.5ptile_5_18.txt');
+        beta_txt = fullfile(bad_beta_path,subjects{iRDM}, 'tmap_4_rsa_singletrial', 'samepos_tmap_5ptile_10_25.txt');
         bad_betas = textread(beta_txt);
 %         bad_betas = [];
 

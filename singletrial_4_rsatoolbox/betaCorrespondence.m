@@ -27,17 +27,18 @@ function betas = betaCorrespondence()
 % Copyright (C) 2010 Medical Research Council
 
 % dir = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/getbetas_native_4_26_18/s001/SVDP_beta_4_rsa';
-dir = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/getbetas_native_4_26_18/s001/beta_4_rsa_singletrial';
-x = spm_select('ExtFPListRec', dir, '^*\.nii');
-% need to remove first beta, a duplicate, if using non-resliced betas
-% x = x(2:end,:);
+% dir = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/getbetas_native_4_26_18/s001/beta_4_rsa_singletrial';
 
+% 10_23_18
+dir = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/cluster_preproc_native_8_6_18_tmaps/s001/tmap_4_rsa_singletrial';
+
+
+x = spm_select('ExtFPListRec', dir, '^*\.nii');
 
 
 for i = 1:size(x,1)
     [q w e] = fileparts(x(i,:));
-    betas(1,i).identifier = w;
-    
+    betas(1,i).identifier = w;    
 end
 
 

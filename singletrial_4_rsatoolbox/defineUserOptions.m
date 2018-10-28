@@ -18,7 +18,7 @@ function userOptions = defineUserOptions()
 %% Project details
 
 % This name identifies a collection of files which all belong to the same run of a project.
-userOptions.analysisName = 'Glasser_sameVERB_TMAPS_5_2_18';
+userOptions.analysisName = 'same_position_10_23_18';
 
 % This is the root directory of the project.
 userOptions.rootPath = '/Users/wbr/walter/fmri/sms_scan_analyses/rsa_singletrial/singletrial_4_rsatoolbox';
@@ -26,7 +26,8 @@ userOptions.rootPath = '/Users/wbr/walter/fmri/sms_scan_analyses/rsa_singletrial
 % The path leading to where the scans are stored (not including subject-specific identifiers).
 % "[[subjectName]]" should be used as a placeholder to denote an entry in userOptions.subjectNames
 % "[[betaIdentifier]]" should be used as a placeholder to denote an output of betaCorrespondence.m if SPM is not being used; or an arbitrary filename if SPM is being used.
-userOptions.betaPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/getbetas_native_4_26_18/[[subjectName]]/SVDP_tmaps_4_rsa/[[betaIdentifier]]';
+userOptions.betaPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/cluster_preproc_native_8_6_18_tmaps/[[subjectName]]/tmap_4_rsa_singletrial/[[betaIdentifier]]';
+% userOptions.betaPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/cluster_preproc_native_8_6_18_tmaps/[[subjectName]]/SVDP_tmaps_4_rsa/[[betaIdentifier]]';
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% FEATURES OF INTEREST SELECTION OPTIONS %%
@@ -39,50 +40,12 @@ userOptions.betaPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/ge
 	% The path to a stereotypical mask data file is stored (not including subject-specific identifiers).
 	% "[[subjectName]]" should be used as a placeholder to denote an entry in userOptions.subjectNames
 	% "[[maskName]]" should be used as a placeholder to denote an entry in userOptions.maskNames
-	userOptions.maskPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/masks/[[subjectName]]/all_glass/[[maskName]]';
+	userOptions.maskPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/masks/[[subjectName]]/ants_fs_10_23_18/[[maskName]]';
 		% beta_resampled_word_form_thresholded.nii
         
     % The list of mask filenames (minus .hdr extension) to be used.
     
-%     userOptions.maskNames = {'thresh_hipp_body_L' 'thresh_hipp_body_R'  'thresh_hipp_head_L' 'thresh_hipp_head_R' ...
-%                              'thresh_hipp_tail_L' 'thresh_hipp_tail_R' 'thresh_phc_ant_L' 'thresh_phc_ant_R' ...
-%                              'thresh_prc_L' 'thresh_prc_R' 'thresh_VMPFC'};
 
-%         userOptions.maskNames = {'resliced_hipp_body_L.nii' 'resliced_hipp_body_R.nii'  'resliced_hipp_head_L.nii' 'resliced_hipp_head_R.nii' ...
-%             'resliced_hipp_tail_L.nii' 'resliced_hipp_tail_R.nii'   'resliced_phc_ant_L.nii' 'resliced_phc_ant_R.nii' ...
-%             'resliced_prc_L.nii' 'resliced_prc_R.nii' 'resliced_VMPFC.nii'};
-%         
-%         userOptions.maskNames = strrep(userOptions.maskNames, '.nii', ''); 
-% 
-        % nearest neighbor ROIs
-%         userOptions.maskNames = {'near_hipp_body_L.nii' 'near_hipp_body_R.nii'  'near_hipp_head_L.nii' 'near_hipp_head_R.nii' ...
-%             'near_hipp_tail_L.nii' 'near_hipp_tail_R.nii' 'near_phc_ant_L.nii' 'near_phc_ant_R.nii' ...
-%             'near_prc_L.nii' 'near_prc_R.nii' 'near_VMPFC.nii'};
-%         userOptions.maskNames = strrep(userOptions.maskNames, '.nii', ''); 
-
-        % glasser rois
-%         userOptions.maskNames = {'reslice_near_glass_ANG_150.nii' 'reslice_near_glass_ANG_149.nii'...
-%             'reslice_near_glass_RSC_14.nii' 'reslice_near_glass_PCC_34.nii' 'reslice_near_glass_PCC_33.nii' ...
-%             'reslice_near_glass_PREC_31.nii' 'reslice_near_glass_PREC_30.nii' 'reslice_near_glass_PREC_38.nii' ...
-%             'reslice_near_glass_PREC_27.nii' 'reslice_near_glass_PHC_125.nii' 'reslice_near_glass_PHC_126.nii'...
-%             'reslice_near_glass_PHC_127.nii' 'reslice_near_glass_VMPFC_88.nii'};
-% %         
-%         userOptions.maskNames = strrep(userOptions.maskNames, '.nii', ''); 
-        
-        % FreeSurfer ROIs
-%         userOptions.maskNames = {userOptions.maskNames 'lh_ACC' 'lh_ANG' 'lh_MPFC' 'lh_PCC' 'lh_PHG' 'lh_Prec' 'lh_RSC' ...
-%     'lh_TPole' 'lh_VMPFC' 'lh_occ_pole' 'rh_ACC' 'rh_ANG' 'rh_MPFC' ...
-%     'rh_PCC' 'rh_PHG' 'rh_Prec' 'rh_RSC' 'rh_TPole' 'rh_VMPFC' 'rh_occ_pole'};
-
-%         % Glasser free surfer to native 
-%         userOptions.maskNames = {'L_PGi_ROI.nii' 'L_PFm_ROI.nii' 'L_RSC_ROI' 'L_d23ab_ROI.nii' 'L_v23ab_ROI' ...
-%             'L_POS1_ROI.nii' 'L_7m_ROI.nii' 'L_PCV_ROI' 'L_23c_ROI.nii' 'L_A5_ROI.nii' ...
-%             'L_PHA1_ROI.nii' 'L_PHA3_ROI.nii' 'L_10v_ROI.nii' ...
-%             'R_PGi_ROI.nii' 'R_PFm_ROI.nii' 'R_RSC_ROI' 'R_d23ab_ROI.nii' 'R_v23ab_ROI' ...
-%             'R_POS1_ROI.nii' 'R_7m_ROI.nii' 'R_PCV_ROI' 'R_23c_ROI.nii' 'R_A5_ROI.nii' ...
-%             'R_PHA1_ROI.nii' 'R_PHA3_ROI.nii' 'R_10v_ROI.nii'};   
-%
-%       userOptions.maskNames = strcat('reslice_',userOptions.maskNames );
 %%
 %            % FS and ANTS ROIs
 %            userOptions.maskNames = {'near_hipp_body_L' 'near_hipp_body_R' 'near_hipp_head_L'...
@@ -91,11 +54,25 @@ userOptions.betaPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/ge
 %                'lh_Prec' 'lh_RSC' 'lh_TPole' 'lh_VMPFC' 'lh_occ_pole' 'rh_ACC' 'rh_ANG' 'rh_MPFC' ...
 %                'rh_PCC' 'rh_PHG' 'rh_Prec' 'rh_RSC' 'rh_TPole' 'rh_VMPFC' 'rh_occ_pole'};
 
+            % 10_23_18 mask names
+            userOptions.maskNames = {'lh_ACC.nii' 'lh_ANG.nii' 'lh_MPFC.nii' 'lh_MTG.nii' 'lh_OFC.nii' 'lh_PCC.nii' 'lh_PHG.nii' ...
+            'lh_Prec.nii' 'lh_RSC.nii' 'lh_TPole.nii' 'lh_VMPFC.nii' 'lh_inf_opercular.nii' 'lh_inf_orbital.nii' ...
+            'lh_inf_triang.nii' 'lh_insula_ant.nii' 'lh_insula_inf.nii' 'lh_insula_short.nii' 'lh_insula_sup.nii' ...
+            'lh_occ_pole.nii' 'rh_ACC.nii' 'rh_ANG.nii' 'rh_MPFC.nii' 'rh_MTG.nii' 'rh_OFC.nii' 'rh_PCC.nii' ...
+            'rh_PHG.nii' 'rh_Prec.nii' 'rh_RSC.nii' 'rh_TPole.nii' 'rh_VMPFC.nii' 'rh_inf_opercular.nii' ...
+            'rh_inf_orbital.nii' 'rh_inf_triang.nii' 'rh_insula_ant.nii' 'rh_insula_inf.nii' ...
+            'rh_insula_short.nii' 'rh_insula_sup.nii' 'rh_occ_pole.nii'...
+            'near_hipp_body_L.nii' 'near_hipp_body_R.nii'  'near_hipp_head_L.nii' 'near_hipp_head_R.nii' ...
+            'near_hipp_tail_L.nii' 'near_hipp_tail_R.nii' 'near_phc_ant_L.nii' 'near_phc_ant_R.nii' ...
+            'near_prc_L.nii' 'near_prc_R.nii'};
+        
+            userOptions.maskNames = strrep(userOptions.maskNames, '.nii', '');
+
 %%
         % all native glasser ROIs
-        load('glass_roi_no_LHorRH.mat');
+%         load('glass_roi_no_LHorRH.mat');
 %         load('glass_roi_names.mat');
-        userOptions.maskNames = y(2:end);
+%         userOptions.maskNames = y(2:end);
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %% SEARCHLIGHT OPTIONS %%
@@ -120,7 +97,9 @@ userOptions.betaPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/ge
 %%%%%%%%%%%%%%%%%%%%%%%%
 
 % The list of subjects to be included in the study.
-userOptions.subjectNames = {'s001' 's002' 's003' 's004' 's007' 's009' 's010' 's011' 's015' 's016' 's018' 's019' 's020' 's022' 's023' 's024' 's025'}; % 's008'
+userOptions.subjectNames = {'s001' 's002' 's003' 's004' 's007' 's008' 's009' 's010' 's011' 's015' 's016' 's018' 's019'  's020'...
+                            's022' 's023' 's024' 's025' 's027' 's028' 's029' 's030' 's032' 's033' 's034' 's035' 's036' 's037' ...
+                            's038' 's039' 's040' 's041' 's042'}; % missing an ROI, wasn't gonna use anyway
 
 % The default colour label for RDMs corresponding to RoI masks (as opposed to models).
 userOptions.RoIColor = [0 0 1];
@@ -187,3 +166,46 @@ userOptions.colourScheme = bone(128);
 % userOptions.tightInset = true;
 % 
 % userOptions.forcePromptReply = 'r';
+
+%%
+
+% old roi junk 
+%     userOptions.maskNames = {'thresh_hipp_body_L' 'thresh_hipp_body_R'  'thresh_hipp_head_L' 'thresh_hipp_head_R' ...
+%                              'thresh_hipp_tail_L' 'thresh_hipp_tail_R' 'thresh_phc_ant_L' 'thresh_phc_ant_R' ...
+%                              'thresh_prc_L' 'thresh_prc_R' 'thresh_VMPFC'};
+
+%         userOptions.maskNames = {'resliced_hipp_body_L.nii' 'resliced_hipp_body_R.nii'  'resliced_hipp_head_L.nii' 'resliced_hipp_head_R.nii' ...
+%             'resliced_hipp_tail_L.nii' 'resliced_hipp_tail_R.nii'   'resliced_phc_ant_L.nii' 'resliced_phc_ant_R.nii' ...
+%             'resliced_prc_L.nii' 'resliced_prc_R.nii' 'resliced_VMPFC.nii'};
+%         
+%         userOptions.maskNames = strrep(userOptions.maskNames, '.nii', ''); 
+% 
+        % nearest neighbor ROIs
+%         userOptions.maskNames = {'near_hipp_body_L.nii' 'near_hipp_body_R.nii'  'near_hipp_head_L.nii' 'near_hipp_head_R.nii' ...
+%             'near_hipp_tail_L.nii' 'near_hipp_tail_R.nii' 'near_phc_ant_L.nii' 'near_phc_ant_R.nii' ...
+%             'near_prc_L.nii' 'near_prc_R.nii' 'near_VMPFC.nii'};
+%         userOptions.maskNames = strrep(userOptions.maskNames, '.nii', ''); 
+
+        % glasser rois
+%         userOptions.maskNames = {'reslice_near_glass_ANG_150.nii' 'reslice_near_glass_ANG_149.nii'...
+%             'reslice_near_glass_RSC_14.nii' 'reslice_near_glass_PCC_34.nii' 'reslice_near_glass_PCC_33.nii' ...
+%             'reslice_near_glass_PREC_31.nii' 'reslice_near_glass_PREC_30.nii' 'reslice_near_glass_PREC_38.nii' ...
+%             'reslice_near_glass_PREC_27.nii' 'reslice_near_glass_PHC_125.nii' 'reslice_near_glass_PHC_126.nii'...
+%             'reslice_near_glass_PHC_127.nii' 'reslice_near_glass_VMPFC_88.nii'};
+% %         
+%         userOptions.maskNames = strrep(userOptions.maskNames, '.nii', ''); 
+        
+        % FreeSurfer ROIs
+%         userOptions.maskNames = {userOptions.maskNames 'lh_ACC' 'lh_ANG' 'lh_MPFC' 'lh_PCC' 'lh_PHG' 'lh_Prec' 'lh_RSC' ...
+%     'lh_TPole' 'lh_VMPFC' 'lh_occ_pole' 'rh_ACC' 'rh_ANG' 'rh_MPFC' ...
+%     'rh_PCC' 'rh_PHG' 'rh_Prec' 'rh_RSC' 'rh_TPole' 'rh_VMPFC' 'rh_occ_pole'};
+
+%         % Glasser free surfer to native 
+%         userOptions.maskNames = {'L_PGi_ROI.nii' 'L_PFm_ROI.nii' 'L_RSC_ROI' 'L_d23ab_ROI.nii' 'L_v23ab_ROI' ...
+%             'L_POS1_ROI.nii' 'L_7m_ROI.nii' 'L_PCV_ROI' 'L_23c_ROI.nii' 'L_A5_ROI.nii' ...
+%             'L_PHA1_ROI.nii' 'L_PHA3_ROI.nii' 'L_10v_ROI.nii' ...
+%             'R_PGi_ROI.nii' 'R_PFm_ROI.nii' 'R_RSC_ROI' 'R_d23ab_ROI.nii' 'R_v23ab_ROI' ...
+%             'R_POS1_ROI.nii' 'R_7m_ROI.nii' 'R_PCV_ROI' 'R_23c_ROI.nii' 'R_A5_ROI.nii' ...
+%             'R_PHA1_ROI.nii' 'R_PHA3_ROI.nii' 'R_10v_ROI.nii'};   
+%
+%       userOptions.maskNames = strcat('reslice_',userOptions.maskNames );
