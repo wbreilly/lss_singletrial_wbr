@@ -30,10 +30,13 @@ function betas = betaCorrespondence()
 % dir = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/getbetas_native_4_26_18/s001/beta_4_rsa_singletrial';
 
 % 10_23_18
-dir = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/cluster_preproc_native_8_6_18_tmaps/s001/tmap_4_rsa_singletrial';
+% dir = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/cluster_preproc_native_8_6_18_tmaps/s001/tmap_4_rsa_singletrial';
+% FIR
+dir = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/fir_data_10_26_18/s001/rename_fir_spm';
 
 
-x = spm_select('ExtFPListRec', dir, '^*\.nii');
+% x = spm_select('ExtFPListRec', dir, 'coreg.*\.nii');
+x = spm_select('ExtFPListRec', dir, '.*\.nii');
 
 
 for i = 1:size(x,1)

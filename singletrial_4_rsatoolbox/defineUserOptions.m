@@ -18,7 +18,7 @@ function userOptions = defineUserOptions()
 %% Project details
 
 % This name identifies a collection of files which all belong to the same run of a project.
-userOptions.analysisName = 'same_position_10_23_18';
+userOptions.analysisName = 'FIR_RSA_10_29_18';
 
 % This is the root directory of the project.
 userOptions.rootPath = '/Users/wbr/walter/fmri/sms_scan_analyses/rsa_singletrial/singletrial_4_rsatoolbox';
@@ -26,8 +26,9 @@ userOptions.rootPath = '/Users/wbr/walter/fmri/sms_scan_analyses/rsa_singletrial
 % The path leading to where the scans are stored (not including subject-specific identifiers).
 % "[[subjectName]]" should be used as a placeholder to denote an entry in userOptions.subjectNames
 % "[[betaIdentifier]]" should be used as a placeholder to denote an output of betaCorrespondence.m if SPM is not being used; or an arbitrary filename if SPM is being used.
-userOptions.betaPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/cluster_preproc_native_8_6_18_tmaps/[[subjectName]]/tmap_4_rsa_singletrial/[[betaIdentifier]]';
+% userOptions.betaPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/cluster_preproc_native_8_6_18_tmaps/[[subjectName]]/tmap_4_rsa_singletrial/[[betaIdentifier]]';
 % userOptions.betaPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/cluster_preproc_native_8_6_18_tmaps/[[subjectName]]/SVDP_tmaps_4_rsa/[[betaIdentifier]]';
+userOptions.betaPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/fir_data_10_26_18/[[subjectName]]/rename_fir_spm/[[betaIdentifier]]';
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% FEATURES OF INTEREST SELECTION OPTIONS %%
@@ -99,7 +100,7 @@ userOptions.betaPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/cl
 % The list of subjects to be included in the study.
 userOptions.subjectNames = {'s001' 's002' 's003' 's004' 's007' 's008' 's009' 's010' 's011' 's015' 's016' 's018' 's019'  's020'...
                             's022' 's023' 's024' 's025' 's027' 's028' 's029' 's030' 's032' 's033' 's034' 's035' 's036' 's037' ...
-                            's038' 's039' 's040' 's041' 's042'}; % missing an ROI, wasn't gonna use anyway
+                            's038' 's039' 's040' 's041' 's042'}; %'s043' missing an ROI, wasn't gonna use anyway
 
 % The default colour label for RDMs corresponding to RoI masks (as opposed to models).
 userOptions.RoIColor = [0 0 1];
@@ -116,7 +117,7 @@ userOptions.getSPMData = false;
 %% First-order analysis
 
 % Text lables which may be attached to the conditions for MDS plots.
-[userOptions.conditionLabels{1:225}] = deal(1:225);
+[userOptions.conditionLabels{1:225}] = deal(1:1440);
 % userOptions.conditionLabels = {'Intact'}; % 'S-F' 'S-R'};
 % userOptions.useAlternativeConditionLabels = false;
 

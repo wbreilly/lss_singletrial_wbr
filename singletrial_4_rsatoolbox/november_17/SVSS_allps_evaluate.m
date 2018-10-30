@@ -5,7 +5,7 @@ clc
 %% setup and create text file
 
 % analysis name
-analysis = 'same_position_10_25_18_5ptile';
+analysis = 'same_position_10_27_18_5ptile';
 % you know who
 subjects = {'s001' 's002' 's003' 's004' 's007' 's008' 's009' 's010' 's011' 's015' 's016' 's018' 's019'  's020'...
             's022' 's023' 's024' 's025' 's027' 's028' 's029' 's030' 's032' 's033' 's034' 's035' 's036' 's037' ...
@@ -56,7 +56,7 @@ for ipos = 1:5
     for iRDM = 1:size(RDMs,2)
         
         % load up the bad beta identifiers
-        beta_txt = fullfile(bad_beta_path,subjects{iRDM}, 'tmap_4_rsa_singletrial', 'samepos_tmap_5ptile_10_25.txt');
+        beta_txt = fullfile(bad_beta_path,subjects{iRDM}, 'tmap_4_rsa_singletrial', 'samepos_tmap_5ptile_10_27.txt');
         bad_betas = textread(beta_txt);
 %         bad_betas = [];
 
@@ -84,6 +84,8 @@ for ipos = 1:5
             x(x == 1) = NaN;
             % convert to similarity, UNLESS USING COSINE
             x = 1-x;
+            % NaN any correlations that equal 1 (all zeros??? missing data)
+            x(x == 1) = NaN;
             %% 
 
             % mask
