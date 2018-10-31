@@ -18,7 +18,7 @@ function userOptions = defineUserOptions()
 %% Project details
 
 % This name identifies a collection of files which all belong to the same run of a project.
-userOptions.analysisName = 'FIR_RSA_10_29_18';
+userOptions.analysisName = 'FIR_RSA_10_30_18';
 
 % This is the root directory of the project.
 userOptions.rootPath = '/Users/wbr/walter/fmri/sms_scan_analyses/rsa_singletrial/singletrial_4_rsatoolbox';
@@ -28,7 +28,7 @@ userOptions.rootPath = '/Users/wbr/walter/fmri/sms_scan_analyses/rsa_singletrial
 % "[[betaIdentifier]]" should be used as a placeholder to denote an output of betaCorrespondence.m if SPM is not being used; or an arbitrary filename if SPM is being used.
 % userOptions.betaPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/cluster_preproc_native_8_6_18_tmaps/[[subjectName]]/tmap_4_rsa_singletrial/[[betaIdentifier]]';
 % userOptions.betaPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/cluster_preproc_native_8_6_18_tmaps/[[subjectName]]/SVDP_tmaps_4_rsa/[[betaIdentifier]]';
-userOptions.betaPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/fir_data_10_26_18/[[subjectName]]/rename_fir_spm/[[betaIdentifier]]';
+userOptions.betaPath = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/fir_data_10_30_18/[[subjectName]]/rename_fir_spm/[[betaIdentifier]]';
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% FEATURES OF INTEREST SELECTION OPTIONS %%
