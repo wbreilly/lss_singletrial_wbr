@@ -3,9 +3,11 @@ clear all
 clc
 
 
-dataDir     = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/masks';
+dataDir     = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/glass_10_20_18/';
 scriptdir   = '/Users/wbr/walter/fmri/sms_scan_analyses/rsa_singletrial/singletrial_4_rsatoolbox';
-subjects    = {'s009' 's020' 's022' 's023' 's024' 's025'};%{'s001' 's002' 's003' 's004' 's007' 's008' 's010' 's011' 's015' 's016' 's018' 's019'}; 
+subjects    = {'s001' 's002' 's003' 's004' 's007' 's008' 's009' 's010' 's011' 's015' 's016' 's018' 's019'  's020'...
+               's022' 's023' 's024' 's025' 's027' 's028' 's029' 's030' 's032' 's033' 's034' 's035' 's036' 's037' ...
+               's038' 's039' 's040' 's041' 's042' 's043'};
 b.scriptdir = scriptdir;
 
 % newnames = {'lh_ACC' 'lh_ANG' 'lh_MPFC' 'lh_PCC' 'lh_PHG' 'lh_Prec' 'lh_RSC' ...
@@ -15,13 +17,16 @@ b.scriptdir = scriptdir;
 % newnames = strcat(newnames, '.nii');
 
 % Loop over subjects
-for isub = 1:length(subjects)
+for isub = 2:length(subjects)
     b.curSubj   = subjects{isub};
-    b.dataDir   = fullfile(dataDir, b.curSubj, 'all_glass');
+    b.dataDir   = fullfile(dataDir, b.curSubj, 'masks');
+    
+    gunzip(sprintf('%s/*.nii.gz',b.dataDir))
+    
     b.masks     = cellstr(spm_select('ExtFPListRec', b.dataDir, '.*.nii'));
     
     % mean image as the reference 
-    path1 = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/batch_preproc_native_2_28_18/';
+    path1 = '/Users/wbr/walter/fmri/sms_scan_analyses/data_for_spm/mean_epi_from_clust_preproc_10_22_18/';
     path2 = sprintf('Rifa_1/meanslicetime_%s.Rifa_1.bold.nii', b.curSubj);
     ref_img = fullfile(path1, b.curSubj, path2);
     
@@ -39,6 +44,11 @@ for isub = 1:length(subjects)
     spm('defaults','fmri');
     spm_jobman('initcfg');
     spm_jobman('run',matlabbatch);
+    
+    
+    delete(sprintf('%s/L_*.nii',b.dataDir))
+    delete(sprintf('%s/R_*.nii',b.dataDir))
+    delete(sprintf('%s/???.nii',b.dataDir))
     
     % grab all the resliced masks
 %     b.sliced = (spm_select('FPListRec', b.dataDir, '^reslice.*.nii'));

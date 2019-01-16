@@ -25,7 +25,7 @@ newnames = {'lh_ACC.nii' 'lh_ANG.nii' 'lh_MPFC.nii' 'lh_MTG.nii' 'lh_OFC.nii' 'l
             'rh_insula_short.nii' 'rh_insula_sup.nii' 'rh_occ_pole.nii'};
 
 % Loop over subjects
-for isub = 1:length(subjects)
+for isub = 2:length(subjects)
     b.curSubj   = subjects{isub};
     b.dataDir   = fullfile(dataDir, b.curSubj, 'mprage_sag_NS_g3', 'corticalroi');
     b.masks     = cellstr(spm_select('ExtFPListRec', b.dataDir, '.*.nii'));
