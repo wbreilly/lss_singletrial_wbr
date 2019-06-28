@@ -104,6 +104,7 @@ for iRDM = 1:length(subjects)
     end % end iroi
 
     toc
+    clearvars -except beta_name_parts iRDM fid_study cur_path bad_beta_path subjects
 end %end iRDM
 
 
