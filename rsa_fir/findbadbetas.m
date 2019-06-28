@@ -61,7 +61,7 @@ for s=1:length(sublist)
     
     
     % this makes image numbers refer to appropriate betas
-    bad = [bad1; bad2+90; bad3+135];
+    bad = [bad1; bad2+576; bad3+864];
     
     % if there are no exlcuded trials, put in a zero so that 
     if isempty(bad)
@@ -69,7 +69,7 @@ for s=1:length(sublist)
     end
     
      % write bad trial numbers to text file 
-    dlmwrite([ldir 'fir_5ptile_10_31.txt'],bad);
+    dlmwrite([ldir 'fir_5ptile_2_23_19.txt'],bad);
     toc
 end %subject
 end % end function

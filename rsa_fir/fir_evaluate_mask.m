@@ -5,7 +5,7 @@ clc
 %% setup and create text file
 
 % analysis name
-analysis = 'fir_glass_12_30_18_5ptile';
+analysis = 'fir_glass_2_28_19_5ptile_atanh';
 % you know who
 subjects = {'s001' 's002' 's003' 's004' 's007' 's008' 's009' 's010' 's011' 's015' 's016' 's018' 's019'  's020'...
             's022' 's023' 's024' 's025' 's027' 's028' 's029' 's030' 's032' 's033' 's034' 's035' 's036' 's037' ...
@@ -51,12 +51,13 @@ fprintf(fid_study,'sub roi condition position similarity\n');
 for iRDM = 1:length(subjects)
     tic
     % load up the bad beta identifiers
-    beta_txt = fullfile(bad_beta_path,subjects{iRDM}, 'all_gray', 'fir_5ptile_10_31.txt');
+    beta_txt = fullfile(bad_beta_path,subjects{iRDM}, 'all_gray', 'fir_5ptile_2_23_19.txt');
     bad_betas = textread(beta_txt);
 % %         bad_betas = [];
 
     % load the RSA matrices     
     load(sprintf('/Users/wbr/walter/fmri/sms_scan_analyses/rsa_singletrial/singletrial_4_rsatoolbox/RDMs/%s_FIR_glass_12_29_18_RDMs.mat',subjects{iRDM}));
+%     load(sprintf('/Users/wbr/walter/fmri/sms_scan_analyses/rsa_singletrial/singletrial_4_rsatoolbox/RDMs/%s_FIR_RSA_10_31_18_RDMs.mat',subjects{iRDM}));
     
     % get the ROI names
     ROIs = {};
@@ -81,6 +82,7 @@ for iRDM = 1:length(subjects)
             % grab the RDM
             % since there is only one sub per RDM
             x = RDMs(iroi,1).RDM;
+            
 
             % NaN bad betas to be excluded
             % if statement addresses situation where 0 betas excluded. TXT
@@ -113,6 +115,9 @@ for iRDM = 1:length(subjects)
             if length(x_vec) ~= 45
                 error('x_vec is not equal to 45!!')
             end
+            
+            % fisher z transform pearson correlations
+            x_vec = atanh(x_vec);
 
             % pull out values for each condition
             % intact
