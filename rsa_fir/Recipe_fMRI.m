@@ -18,7 +18,7 @@ subjects = {'s001' 's002' 's003' 's004' 's007' 's008' 's009' 's010' 's011' 's015
 
 toolboxRoot = '/Users/Documents/Matlab/rsatoolbox'; addpath(genpath(toolboxRoot));
 
-for isub = 26:length(subjects)
+for isub = 1:2 %26:length(subjects)
     try
         userOptions = defineUserOptions(subjects{isub});
 
@@ -38,7 +38,7 @@ for isub = 26:length(subjects)
         
     catch ME
         rethrow(ME)
-        warning(sprintf('\n\nproblem with $s\n\n', isub))
+        warning(sprintf('\n\nproblem with %s\n\n', isub))
     end
 end
 
